@@ -12,7 +12,7 @@
 
 ///输入框最长度
 @property (nonatomic, assign) IBInspectable NSInteger maxLength;
-
+///输入是否为纯数字
 @property (nonatomic, assign) BOOL isNumber;
 
 @end
