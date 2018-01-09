@@ -10,9 +10,9 @@ s.name         = "ZJHFoundation"
   s.platform     = :ios, "8.0"
   s.requires_arc = true
   s.source       = { :git => "https://github.com/qaz835050347/ZJHFoundation.git", :tag => "#{s.version}" }
-  s.source_files  = "Sources", "Sources/**/*.{h,m}"
+  s.source_files  = "ZJHFoundation", "ZJHFoundation/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
-  s.public_header_files = "Sources/ZJHFoundationHeader.h"
+  s.public_header_files = "ZJHFoundation/Sources/ZJHFoundationHeader.h"
 
   s.frameworks   = 'UIKit','runtime'
 
