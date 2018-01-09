@@ -10,7 +10,8 @@ s.name         = "ZJHFoundation"
   s.platform     = :ios, "8.0"
   s.requires_arc = true
   s.source       = { :git => "https://github.com/qaz835050347/ZJHFoundation.git", :tag => "#{s.version}" }
-  s.source_files  = "ZJHFoundation", "ZJHFoundation/**/*.{h,m}"
+  s.source_files  = "ZJHFoundation/Sources/**/*.{h,m,c}"
+  s.resources = 'ZJHFoundation/Sources/**/*.{json,png,jpg,gif,xib,bundle}'
   #s.exclude_files = "Classes/Exclude"
   s.public_header_files = "ZJHFoundation/Sources/ZJHFoundationHeader.h"
 
