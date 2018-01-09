@@ -41,7 +41,6 @@ static UItextFieldMaxLengthObserver *observer;
     observer = [[UItextFieldMaxLengthObserver alloc] init];
 }
 
-
 -(NSInteger)maxLength
 {
     NSNumber *number = objc_getAssociatedObject(self, &zjh_MaxLength);
@@ -56,7 +55,6 @@ static UItextFieldMaxLengthObserver *observer;
                  action:@selector(textChange:)
        forControlEvents:UIControlEventEditingChanged];
     }
-    
 }
 
 -(BOOL)isNumber

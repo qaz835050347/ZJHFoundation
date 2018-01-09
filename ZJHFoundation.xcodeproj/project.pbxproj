@@ -17,6 +17,9 @@
 		634C8483200446AA00F7EF38 /* ZJHFoundationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8482200446AA00F7EF38 /* ZJHFoundationUITests.m */; };
 		634C849620045E1800F7EF38 /* UITextField+ZJHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C849520045E1800F7EF38 /* UITextField+ZJHCategory.m */; };
 		634C849A200460F600F7EF38 /* ZJH_TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8499200460F600F7EF38 /* ZJH_TextField.m */; };
+		634C849F20049A9D00F7EF38 /* ZJH_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C849D20049A9D00F7EF38 /* ZJH_AlertView.m */; };
+		634C84A220049C4F00F7EF38 /* UIView+ZJHFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C84A120049C4F00F7EF38 /* UIView+ZJHFrame.m */; };
+		634C84A52004A17000F7EF38 /* UILabel+ZJHFontSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C84A42004A17000F7EF38 /* UILabel+ZJHFontSpacing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,12 @@
 		634C8498200460F600F7EF38 /* ZJH_TextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJH_TextField.h; sourceTree = "<group>"; };
 		634C8499200460F600F7EF38 /* ZJH_TextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJH_TextField.m; sourceTree = "<group>"; };
 		634C849C2004613000F7EF38 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		634C849D20049A9D00F7EF38 /* ZJH_AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJH_AlertView.m; sourceTree = "<group>"; };
+		634C849E20049A9D00F7EF38 /* ZJH_AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJH_AlertView.h; sourceTree = "<group>"; };
+		634C84A020049C4F00F7EF38 /* UIView+ZJHFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ZJHFrame.h"; sourceTree = "<group>"; };
+		634C84A120049C4F00F7EF38 /* UIView+ZJHFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZJHFrame.m"; sourceTree = "<group>"; };
+		634C84A32004A17000F7EF38 /* UILabel+ZJHFontSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZJHFontSpacing.h"; sourceTree = "<group>"; };
+		634C84A42004A17000F7EF38 /* UILabel+ZJHFontSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZJHFontSpacing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +166,10 @@
 			children = (
 				634C849420045E1800F7EF38 /* UITextField+ZJHCategory.h */,
 				634C849520045E1800F7EF38 /* UITextField+ZJHCategory.m */,
+				634C84A020049C4F00F7EF38 /* UIView+ZJHFrame.h */,
+				634C84A120049C4F00F7EF38 /* UIView+ZJHFrame.m */,
+				634C84A32004A17000F7EF38 /* UILabel+ZJHFontSpacing.h */,
+				634C84A42004A17000F7EF38 /* UILabel+ZJHFontSpacing.m */,
 			);
 			path = ZJHCategory;
 			sourceTree = "<group>";
@@ -166,6 +179,8 @@
 			children = (
 				634C8498200460F600F7EF38 /* ZJH_TextField.h */,
 				634C8499200460F600F7EF38 /* ZJH_TextField.m */,
+				634C849E20049A9D00F7EF38 /* ZJH_AlertView.h */,
+				634C849D20049A9D00F7EF38 /* ZJH_AlertView.m */,
 			);
 			path = "UIKit+ZJHFoundation";
 			sourceTree = "<group>";
@@ -305,9 +320,12 @@
 			files = (
 				634C849620045E1800F7EF38 /* UITextField+ZJHCategory.m in Sources */,
 				634C849A200460F600F7EF38 /* ZJH_TextField.m in Sources */,
+				634C849F20049A9D00F7EF38 /* ZJH_AlertView.m in Sources */,
 				634C8463200446AA00F7EF38 /* ViewController.m in Sources */,
+				634C84A52004A17000F7EF38 /* UILabel+ZJHFontSpacing.m in Sources */,
 				634C846E200446AA00F7EF38 /* main.m in Sources */,
 				634C8460200446AA00F7EF38 /* AppDelegate.m in Sources */,
+				634C84A220049C4F00F7EF38 /* UIView+ZJHFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

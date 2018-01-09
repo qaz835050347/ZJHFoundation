@@ -10,6 +10,7 @@
 
 #define ZJHFoundationHeader_h
 
+#import "UIView+ZJHFrame.h"
 #import "UITextField+ZJHCategory.h"
 
 #endif /* ZJHFoundationHeader_h */
