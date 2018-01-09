@@ -15,6 +15,8 @@
 		634C846E200446AA00F7EF38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C846D200446AA00F7EF38 /* main.m */; };
 		634C8478200446AA00F7EF38 /* ZJHFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8477200446AA00F7EF38 /* ZJHFoundationTests.m */; };
 		634C8483200446AA00F7EF38 /* ZJHFoundationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8482200446AA00F7EF38 /* ZJHFoundationUITests.m */; };
+		634C849620045E1800F7EF38 /* UITextField+ZJHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C849520045E1800F7EF38 /* UITextField+ZJHCategory.m */; };
+		634C849A200460F600F7EF38 /* ZJH_TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8499200460F600F7EF38 /* ZJH_TextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,12 @@
 		634C847E200446AA00F7EF38 /* ZJHFoundationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZJHFoundationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634C8482200446AA00F7EF38 /* ZJHFoundationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJHFoundationUITests.m; sourceTree = "<group>"; };
 		634C8484200446AA00F7EF38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634C849420045E1800F7EF38 /* UITextField+ZJHCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+ZJHCategory.h"; sourceTree = "<group>"; };
+		634C849520045E1800F7EF38 /* UITextField+ZJHCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ZJHCategory.m"; sourceTree = "<group>"; };
+		634C849720045F0200F7EF38 /* ZJHFoundationHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJHFoundationHeader.h; sourceTree = "<group>"; };
+		634C8498200460F600F7EF38 /* ZJH_TextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJH_TextField.h; sourceTree = "<group>"; };
+		634C8499200460F600F7EF38 /* ZJH_TextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJH_TextField.m; sourceTree = "<group>"; };
+		634C849C2004613000F7EF38 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 				634C845F200446AA00F7EF38 /* AppDelegate.m */,
 				634C8461200446AA00F7EF38 /* ViewController.h */,
 				634C8462200446AA00F7EF38 /* ViewController.m */,
+				634C849C2004613000F7EF38 /* PrefixHeader.pch */,
 				634C8464200446AA00F7EF38 /* Main.storyboard */,
 				634C8467200446AA00F7EF38 /* Assets.xcassets */,
 				634C8469200446AA00F7EF38 /* LaunchScreen.storyboard */,
@@ -138,6 +147,7 @@
 			children = (
 				634C8493200459A500F7EF38 /* UIKit+ZJHFoundation */,
 				634C84912004595400F7EF38 /* ZJHCategory */,
+				634C849720045F0200F7EF38 /* ZJHFoundationHeader.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -145,6 +155,8 @@
 		634C84912004595400F7EF38 /* ZJHCategory */ = {
 			isa = PBXGroup;
 			children = (
+				634C849420045E1800F7EF38 /* UITextField+ZJHCategory.h */,
+				634C849520045E1800F7EF38 /* UITextField+ZJHCategory.m */,
 			);
 			path = ZJHCategory;
 			sourceTree = "<group>";
@@ -152,6 +164,8 @@
 		634C8493200459A500F7EF38 /* UIKit+ZJHFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				634C8498200460F600F7EF38 /* ZJH_TextField.h */,
+				634C8499200460F600F7EF38 /* ZJH_TextField.m */,
 			);
 			path = "UIKit+ZJHFoundation";
 			sourceTree = "<group>";
@@ -289,6 +303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634C849620045E1800F7EF38 /* UITextField+ZJHCategory.m in Sources */,
+				634C849A200460F600F7EF38 /* ZJH_TextField.m in Sources */,
 				634C8463200446AA00F7EF38 /* ViewController.m in Sources */,
 				634C846E200446AA00F7EF38 /* main.m in Sources */,
 				634C8460200446AA00F7EF38 /* AppDelegate.m in Sources */,
@@ -455,6 +471,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZJHFoundation/PrefixHeader.pch;
 				INFOPLIST_FILE = ZJHFoundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = F.ZJHFoundation;
@@ -468,6 +486,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZJHFoundation/PrefixHeader.pch;
 				INFOPLIST_FILE = ZJHFoundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = F.ZJHFoundation;

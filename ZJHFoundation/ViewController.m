@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ZJH_TextField.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    ZJH_TextField *textField = [ZJH_TextField new];
+    textField.frame = CGRectMake(40, 100, 70, 100);
+    textField.isNumber = YES;
+    [textField setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:textField];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

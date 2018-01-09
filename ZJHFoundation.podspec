@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources", "Sources/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Sources/**/*.h"
+  s.public_header_files = "Sources/ZJHFoundationHeader.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
