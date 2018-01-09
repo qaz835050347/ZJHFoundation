@@ -101,6 +101,7 @@
 		634C845D200446AA00F7EF38 /* ZJHFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				634C8490200458C500F7EF38 /* Sources */,
 				634C845E200446AA00F7EF38 /* AppDelegate.h */,
 				634C845F200446AA00F7EF38 /* AppDelegate.m */,
 				634C8461200446AA00F7EF38 /* ViewController.h */,
@@ -130,6 +131,29 @@
 				634C8484200446AA00F7EF38 /* Info.plist */,
 			);
 			path = ZJHFoundationUITests;
+			sourceTree = "<group>";
+		};
+		634C8490200458C500F7EF38 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				634C8493200459A500F7EF38 /* UIKit+ZJHFoundation */,
+				634C84912004595400F7EF38 /* ZJHCategory */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		634C84912004595400F7EF38 /* ZJHCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ZJHCategory;
+			sourceTree = "<group>";
+		};
+		634C8493200459A500F7EF38 /* UIKit+ZJHFoundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UIKit+ZJHFoundation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
