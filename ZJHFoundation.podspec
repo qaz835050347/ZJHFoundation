@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "ZJHFoundation"
   s.version      = "0.0.1"
-  s.summary      = "A short description of ZJHFoundation."
+  s.summary      = "ZJHFoundation is a foundation"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    DESC
 
-  s.homepage     = "http://EXAMPLE/ZJHFoundation"
+  s.homepage     = "https://github.com/qaz835050347/ZJHFoundation.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "Sources", "Sources/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  #s.exclude_files = "Classes/Exclude"
 
   s.public_header_files = "Sources/ZJHFoundationHeader.h"
 
