@@ -12,10 +12,6 @@
 @implementation UIScrollView (ZJH_EmptyDataSte)
 
 +(void)load {
-//    kdt_load_main(KDTLoadAtAppLaunched, ^{
-//        [self kdt_swizzleMethod:@selector(initWithFrame:) withMethod:@selector(kdtswizz_initWithFrame:) error:nil];
-//        [self kdt_swizzleMethod:@selector(initWithCoder:) withMethod:@selector(kdtswizz_initWithCoder:) error:nil];
-//    });
     
     Method initWithFrameMethod = class_getClassMethod(self, @selector(initWithFrame:));
     // 获取xmg_imageNamed
