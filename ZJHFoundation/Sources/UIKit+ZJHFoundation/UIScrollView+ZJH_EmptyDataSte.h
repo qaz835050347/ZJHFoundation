@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 typedef NS_ENUM(NSUInteger,ZJHEmptyDataSetStatus) {
     ZJHEmptyDataSetStatusLoading = 0,//loading
@@ -19,14 +20,14 @@ typedef NS_ENUM(NSUInteger,ZJHEmptyDataSetStatus) {
 };
 
 @interface UIScrollView (ZJH_EmptyDataSte)<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
-
+///状态
 @property (nonatomic, assign) ZJHEmptyDataSetStatus status;
 @property (nonatomic, assign) CGFloat verticalOffset;
 @property (nonatomic, assign) BOOL allowScroll;
 @property (nonatomic, copy) NSString *successImage;
 @property (nonatomic, copy) NSString *successTitle;
+///重新加载按钮事件
 @property (nonatomic, copy) void (^emptyDataSetDidTapAction)();
 @property (nonatomic, copy) void (^emptyDataSetDidDisappear)(UIScrollView *scrollView);
-@property (nonatomic, strong, readonly) UIImageView *loadingView;
 
 @end

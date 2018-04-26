@@ -20,6 +20,7 @@
 		634C849F20049A9D00F7EF38 /* ZJH_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C849D20049A9D00F7EF38 /* ZJH_AlertView.m */; };
 		634C84A220049C4F00F7EF38 /* UIView+ZJHFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C84A120049C4F00F7EF38 /* UIView+ZJHFrame.m */; };
 		634C84A52004A17000F7EF38 /* UILabel+ZJHFontSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C84A42004A17000F7EF38 /* UILabel+ZJHFontSpacing.m */; };
+		6369B2292091AF800057B92D /* NSObject+ZJHSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369B2282091AF800057B92D /* NSObject+ZJHSwizzle.m */; };
 		63B7FB79208F24350033B9A4 /* UIScrollView+ZJH_EmptyDataSte.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B7FB78208F24350033B9A4 /* UIScrollView+ZJH_EmptyDataSte.m */; };
 		63B7FB7C2090876D0033B9A4 /* ZJH_ImageCompressionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B7FB7B2090876D0033B9A4 /* ZJH_ImageCompressionClass.m */; };
 		BB571E091C09186371EF7C57 /* libPods-ZJHFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BD6BA370B0C3EBF3C2DC03 /* libPods-ZJHFoundation.a */; };
@@ -72,6 +73,8 @@
 		634C84A120049C4F00F7EF38 /* UIView+ZJHFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZJHFrame.m"; sourceTree = "<group>"; };
 		634C84A32004A17000F7EF38 /* UILabel+ZJHFontSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZJHFontSpacing.h"; sourceTree = "<group>"; };
 		634C84A42004A17000F7EF38 /* UILabel+ZJHFontSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZJHFontSpacing.m"; sourceTree = "<group>"; };
+		6369B2272091AF800057B92D /* NSObject+ZJHSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZJHSwizzle.h"; sourceTree = "<group>"; };
+		6369B2282091AF800057B92D /* NSObject+ZJHSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZJHSwizzle.m"; sourceTree = "<group>"; };
 		63B7FB77208F24350033B9A4 /* UIScrollView+ZJH_EmptyDataSte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZJH_EmptyDataSte.h"; sourceTree = "<group>"; };
 		63B7FB78208F24350033B9A4 /* UIScrollView+ZJH_EmptyDataSte.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ZJH_EmptyDataSte.m"; sourceTree = "<group>"; };
 		63B7FB7A2090876D0033B9A4 /* ZJH_ImageCompressionClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJH_ImageCompressionClass.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				634C84A120049C4F00F7EF38 /* UIView+ZJHFrame.m */,
 				634C84A32004A17000F7EF38 /* UILabel+ZJHFontSpacing.h */,
 				634C84A42004A17000F7EF38 /* UILabel+ZJHFontSpacing.m */,
+				6369B2272091AF800057B92D /* NSObject+ZJHSwizzle.h */,
+				6369B2282091AF800057B92D /* NSObject+ZJHSwizzle.m */,
 			);
 			path = ZJHCategory;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				634C84A52004A17000F7EF38 /* UILabel+ZJHFontSpacing.m in Sources */,
 				634C846E200446AA00F7EF38 /* main.m in Sources */,
 				63B7FB7C2090876D0033B9A4 /* ZJH_ImageCompressionClass.m in Sources */,
+				6369B2292091AF800057B92D /* NSObject+ZJHSwizzle.m in Sources */,
 				634C8460200446AA00F7EF38 /* AppDelegate.m in Sources */,
 				634C84A220049C4F00F7EF38 /* UIView+ZJHFrame.m in Sources */,
 				63B7FB79208F24350033B9A4 /* UIScrollView+ZJH_EmptyDataSte.m in Sources */,

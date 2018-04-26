@@ -13,20 +13,8 @@
 
 +(void)load {
     
-    Method initWithFrameMethod = class_getClassMethod(self, @selector(initWithFrame:));
-    // 获取xmg_imageNamed
-    Method zjhswizz_initWithFrameMethod = class_getClassMethod(self, @selector(zjhswizz_initWithFrame:));
-    
-    // 交互方法:runtime
-    method_exchangeImplementations(initWithFrameMethod, zjhswizz_initWithFrameMethod);
-    
-    Method initWithCoderMethod = class_getClassMethod(self, @selector(initWithCoder:));
-    // 获取xmg_imageNamed
-    Method zjhswizz_initWithCoderMethod = class_getClassMethod(self, @selector(zjhswizz_initWithCoder:));
-    
-    // 交互方法:runtime
-    method_exchangeImplementations(initWithCoderMethod, zjhswizz_initWithCoderMethod);
-    
+    [self zjh_swizzleMethod:@selector(initWithFrame:) withMethod:@selector(zjhswizz_initWithFrame:) error:nil];
+    [self zjh_swizzleMethod:@selector(initWithCoder:) withMethod:@selector(zjhswizz_initWithCoder:) error:nil];
     
 }
 
@@ -108,68 +96,35 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (UIImageView *)loadingView {
-    UIImageView *view = objc_getAssociatedObject(self, _cmd);
-    if (view != nil) {
-        return view;
-    }
-    UIImageView *loadingView = [[UIImageView alloc] init];
-    [loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(39);
-    }];
-    loadingView.animationImages = [self animationImages];
-    loadingView.animationDuration = 1;
-    loadingView.animationRepeatCount = 0;
-    objc_setAssociatedObject(self, _cmd, loadingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return loadingView;
-}
+- (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView
+{
+    CAKeyframeAnimation *scaleAnim = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnim.keyTimes = @[@0, @0.5, @1];
+    scaleAnim.values = @[@1, @0.6, @1];
 
-- (NSArray *)animationImages {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:13];
-    for (int i=0; i<13; i++) {
-        NSString *imgname = [NSString stringWithFormat:@"refresh_%@",@(i)];
-        UIImage *image = [UIImage imageNamed:imgname];
-        [array addObject:image];
-    }
-    return [array copy];
+
+    CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotateAnimation.keyTimes = scaleAnim.keyTimes;
+    rotateAnimation.values = @[@0, @(M_PI), @(2 * M_PI)];
+
+    CAAnimationGroup *groupAnim = [[CAAnimationGroup alloc] init];
+    groupAnim.animations = @[scaleAnim,rotateAnimation];
+    groupAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    groupAnim.duration = 1;
+    groupAnim.removedOnCompletion = NO;
+    groupAnim.repeatCount = MAXFLOAT;
+    return groupAnim;
 }
 
 #pragma mark - DZNEmptyDataSetSource
 
-- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView {
-    if (self.status == ZJHEmptyDataSetStatusLoading) {
-        UIView *view = [UIView new];
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.and.height.mas_equalTo(100);
-        }];
-        
-        [view addSubview:self.loadingView];
-        [self.loadingView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(view);
-        }];
-        [self.loadingView startAnimating];
-        
-        UILabel *label = [UILabel new];
-        label.text = @"努力加载中...";
-        label.font = [UIFont systemFontOfSize:14];
-//        label.textColor = kSelectedItemColor;
-        [view addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.loadingView.mas_bottom).mas_offset(10);
-            make.centerX.equalTo(view);
-        }];
-        return view;
-    }
-    return nil;
-}
-
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     switch (self.status) {
         case ZJHEmptyDataSetStatusLoading:
+            return [UIImage imageNamed:@"loading1"];
             break;
         case ZJHEmptyDataSetStatusNoContent:
-            return [UIImage imageNamed:@"noContent"];
+            return [UIImage imageNamed:@"NoData"];
             break;
         case ZJHEmptyDataSetStatusEmpty:
             break;
@@ -221,9 +176,9 @@
         paragraph.lineBreakMode = NSLineBreakByWordWrapping;
         paragraph.alignment = NSTextAlignmentCenter;
         
-//        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:16.0f],NSForegroundColorAttributeName: colorFromHexString(@"#999999"),
-//                                     NSParagraphStyleAttributeName: paragraph};
-//        [attributed setAttributedString:[[NSAttributedString alloc] initWithString:text attributes:attributes]];
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:16.0f],NSForegroundColorAttributeName: [UIColor darkGrayColor],
+                                     NSParagraphStyleAttributeName: paragraph};
+        [attributed setAttributedString:[[NSAttributedString alloc] initWithString:text attributes:attributes]];
         return attributed;
     }
     return nil;
@@ -240,6 +195,68 @@
     }
     return nil;
 }
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    if (self.status == ZJHEmptyDataSetStatusDisconnect) {
+        NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] init];
+        
+        NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+        paragraph.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:16.0f],NSForegroundColorAttributeName: [UIColor blueColor],
+                                     NSParagraphStyleAttributeName: paragraph};
+        [attributed setAttributedString:[[NSAttributedString alloc] initWithString:@"重新加载" attributes:attributes]];
+        return attributed;
+    }
+    return nil;
+}
+
+/*
+ 
+-(NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = nil;
+    switch (self.status) {
+        case ZJHEmptyDataSetStatusLoading:
+            break;
+        case ZJHEmptyDataSetStatusNoContent:
+            text = @"还没有内容哦~";
+            break;
+        case ZJHEmptyDataSetStatusEmpty:
+            break;
+        case ZJHEmptyDataSetStatusSuccess:
+            text = self.successTitle;
+            break;
+        case ZJHEmptyDataSetStatusError:
+            text = @"服务器发生了一点错误";
+            break;
+        case ZJHEmptyDataSetStatusDisconnect:
+            text = @"网络请求失败";
+            break;
+        case ZJHEmptyDataSetStatusUnkonw:
+            break;
+        default:
+            break;
+    }
+    
+    if (text) {
+        NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] init];
+        
+        NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+        paragraph.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{
+                                     NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
+                                     NSForegroundColorAttributeName:[UIColor lightGrayColor],
+                                     NSParagraphStyleAttributeName:paragraph
+                                     };
+        [attributed setAttributedString:[[NSAttributedString alloc] initWithString:text attributes:attributes]];
+        return attributed;
+    }
+    return nil;
+}*/
 
 #pragma mark - DZNEmptyDataSetDelegate
 
@@ -247,11 +264,20 @@
     if (self.emptyDataSetDidTapAction) {
         self.emptyDataSetDidTapAction();
     }
+    NSLog(@"重新加载r");
 }
 
 - (void)emptyDataSetDidDisappear:(UIScrollView *)scrollView {
     if (self.emptyDataSetDidDisappear) {
         self.emptyDataSetDidDisappear(scrollView);
+    }
+}
+
+- (BOOL)emptyDataSetShouldAnimateImageView:(UIScrollView *)scrollView{
+    if (self.status == ZJHEmptyDataSetStatusLoading) {
+        return YES;
+    } else {
+        return NO;
     }
 }
 

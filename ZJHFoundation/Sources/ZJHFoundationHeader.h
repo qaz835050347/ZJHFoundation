@@ -12,7 +12,7 @@
 
 #import "UIView+ZJHFrame.h"
 #import "UITextField+ZJHCategory.h"
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <Masonry.h>
-
+#import "UIScrollView+ZJH_EmptyDataSte.h"
+#import "NSObject+ZJHSwizzle.h"
 #endif /* ZJHFoundationHeader_h */
