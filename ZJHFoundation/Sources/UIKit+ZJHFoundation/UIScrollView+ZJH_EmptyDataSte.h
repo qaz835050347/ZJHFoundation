@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger,ZJHEmptyDataSetStatus) {
 ///状态
 @property (nonatomic, assign) ZJHEmptyDataSetStatus status;
 @property (nonatomic, assign) CGFloat verticalOffset;
+///无数据，或者失败情况下是否可以滑动 默认为NO
 @property (nonatomic, assign) BOOL allowScroll;
 @property (nonatomic, copy) NSString *successImage;
 @property (nonatomic, copy) NSString *successTitle;

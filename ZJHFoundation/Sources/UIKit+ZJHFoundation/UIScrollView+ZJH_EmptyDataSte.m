@@ -190,14 +190,14 @@
 }
 
 - (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
-    if (self.status == ZJHEmptyDataSetStatusDisconnect) {
+    if (self.status == ZJHEmptyDataSetStatusDisconnect || self.status == ZJHEmptyDataSetStatusError || self.status == ZJHEmptyDataSetStatusUnkonw) {
         return [UIImage imageNamed:@"reloadBackground"];
     }
     return nil;
 }
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    if (self.status == ZJHEmptyDataSetStatusDisconnect) {
+    if (self.status == ZJHEmptyDataSetStatusDisconnect || self.status == ZJHEmptyDataSetStatusError || self.status == ZJHEmptyDataSetStatusUnkonw) {
         NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] init];
         
         NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
