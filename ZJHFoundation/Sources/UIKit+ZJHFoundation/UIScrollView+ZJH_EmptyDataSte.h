@@ -20,12 +20,14 @@ typedef NS_ENUM(NSUInteger,ZJHEmptyDataSetStatus) {
 };
 
 @interface UIScrollView (ZJH_EmptyDataSte)<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
-///状态
+///列表状态
 @property (nonatomic, assign) ZJHEmptyDataSetStatus status;
 @property (nonatomic, assign) CGFloat verticalOffset;
 ///无数据，或者失败情况下是否可以滑动 默认为NO
 @property (nonatomic, assign) BOOL allowScroll;
+///自定义图片地址
 @property (nonatomic, copy) NSString *successImage;
+///自定义展示标题
 @property (nonatomic, copy) NSString *successTitle;
 ///重新加载按钮事件
 @property (nonatomic, copy) void (^emptyDataSetDidTapAction)();

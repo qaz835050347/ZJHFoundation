@@ -27,7 +27,7 @@ UITableViewDataSource
     [textField setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:textField];
     
-    UITableView *tabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 300, 600) style:UITableViewStylePlain];
+    UITableView *tabelView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tabelView.status = ZJHEmptyDataSetStatusDisconnect;
     tabelView.separatorStyle = UITableViewCellAccessoryNone;
     tabelView.dataSource = self;

@@ -12,10 +12,9 @@
 @implementation UIScrollView (ZJH_EmptyDataSte)
 
 +(void)load {
-    
+    ///此处实现系统方法和自己的方法进行交换
     [self zjh_swizzleMethod:@selector(initWithFrame:) withMethod:@selector(zjhswizz_initWithFrame:) error:nil];
     [self zjh_swizzleMethod:@selector(initWithCoder:) withMethod:@selector(zjhswizz_initWithCoder:) error:nil];
-    
 }
 
 - (void)setUpSourceAndDelegate {
@@ -119,6 +118,11 @@
 #pragma mark - DZNEmptyDataSetSource
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    if (self.successImage.length > 0) {
+        return [UIImage imageNamed:self.successImage];
+    }
+    
     switch (self.status) {
         case ZJHEmptyDataSetStatusLoading:
             return [UIImage imageNamed:@"loading1"];
@@ -146,6 +150,20 @@
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    if (self.successTitle.length > 0) {
+        if (self.successTitle) {
+            NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] init];
+            
+            NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+            paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+            paragraph.alignment = NSTextAlignmentCenter;
+            
+            NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:16.0f],NSForegroundColorAttributeName: [UIColor darkGrayColor],
+                                         NSParagraphStyleAttributeName: paragraph};
+            [attributed setAttributedString:[[NSAttributedString alloc] initWithString:self.successTitle attributes:attributes]];
+            return attributed;
+        }
+    }
     NSString *text = nil;
     switch (self.status) {
         case ZJHEmptyDataSetStatusLoading:
@@ -165,6 +183,7 @@
             text = @"网络请求失败";
             break;
         case ZJHEmptyDataSetStatusUnkonw:
+            text = @"与服务器连接失败";
             break;
         default:
             break;
@@ -212,59 +231,12 @@
     return nil;
 }
 
-/*
- 
--(NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
-{
-    NSString *text = nil;
-    switch (self.status) {
-        case ZJHEmptyDataSetStatusLoading:
-            break;
-        case ZJHEmptyDataSetStatusNoContent:
-            text = @"还没有内容哦~";
-            break;
-        case ZJHEmptyDataSetStatusEmpty:
-            break;
-        case ZJHEmptyDataSetStatusSuccess:
-            text = self.successTitle;
-            break;
-        case ZJHEmptyDataSetStatusError:
-            text = @"服务器发生了一点错误";
-            break;
-        case ZJHEmptyDataSetStatusDisconnect:
-            text = @"网络请求失败";
-            break;
-        case ZJHEmptyDataSetStatusUnkonw:
-            break;
-        default:
-            break;
-    }
-    
-    if (text) {
-        NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] init];
-        
-        NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-        paragraph.alignment = NSTextAlignmentCenter;
-        
-        NSDictionary *attributes = @{
-                                     NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
-                                     NSForegroundColorAttributeName:[UIColor lightGrayColor],
-                                     NSParagraphStyleAttributeName:paragraph
-                                     };
-        [attributed setAttributedString:[[NSAttributedString alloc] initWithString:text attributes:attributes]];
-        return attributed;
-    }
-    return nil;
-}*/
-
 #pragma mark - DZNEmptyDataSetDelegate
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button{
     if (self.emptyDataSetDidTapAction) {
         self.emptyDataSetDidTapAction();
     }
-    NSLog(@"重新加载r");
 }
 
 - (void)emptyDataSetDidDisappear:(UIScrollView *)scrollView {

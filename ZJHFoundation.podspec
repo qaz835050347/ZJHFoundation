@@ -1,6 +1,6 @@
 
 Pod::Spec.new do |s|
-s.name         = "ZJHFoundation"
+  s.name         = "ZJHFoundation"
   s.version      = "0.0.1"
   s.summary      = "ZJHFoundation is a foundation"
 
@@ -16,5 +16,7 @@ s.name         = "ZJHFoundation"
   s.public_header_files = "ZJHFoundation/Sources/ZJHFoundationHeader.h"
 
   s.frameworks   = 'UIKit','runtime'
+  #项目依赖的第三方库
+  s.dependency 'DZNEmptyDataSet'
 
 end
