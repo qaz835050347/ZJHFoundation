@@ -19,7 +19,7 @@
  */
 -(NSString *)notRounding:(float)price afterPoint:(int)position;
 
-///价格格式化
+///价格格式化保留两位小数
 -(NSString *)priceString;
 
 @end
