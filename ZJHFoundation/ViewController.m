@@ -28,7 +28,7 @@ UITableViewDataSource
     [self.view addSubview:textField];
     
     UITableView *tabelView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    tabelView.status = ZJHEmptyDataSetStatusDisconnect;
+    tabelView.status = ZJHEmptyDataSetStatusLoading;
     tabelView.separatorStyle = UITableViewCellAccessoryNone;
     tabelView.dataSource = self;
     [self.view addSubview:tabelView];

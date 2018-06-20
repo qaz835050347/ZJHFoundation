@@ -15,4 +15,5 @@
 #import <Masonry.h>
 #import "UIScrollView+ZJH_EmptyDataSte.h"
 #import "NSObject+ZJHSwizzle.h"
+#import "NSString+Category.h"
 #endif /* ZJHFoundationHeader_h */
