@@ -22,4 +22,14 @@
 ///价格格式化保留两位小数
 -(NSString *)priceString;
 
+-(BOOL)isEqualNull;
+
+/**
+ *  @brief 获取去除空格后的字符串, 只能去除两端
+ */
+- (NSString*)jh_trimString;
+
+/// 获取完全去除空格、换行、制表符、回车符号后的字符串
+- (NSString *)jh_trimAllSpace;
+
 @end

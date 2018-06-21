@@ -43,4 +43,37 @@
     return [NSString stringWithFormat:@"%@",roundedOunces];
 }
 
+-(BOOL)isEqualNull
+{
+    if (![self isKindOfClass:[NSString class]]) {
+        return YES;
+    }
+    if (self.length == 0) {
+        return YES;
+    }
+    NSString* trimString = self.SR_trimString;
+    if (trimString.length == 0) {
+        return YES;
+    }
+    NSString* lowercaseString = self.lowercaseString;
+    if ([lowercaseString isEqualToString:@"(null)"] || [lowercaseString isEqualToString:@"null"] || [lowercaseString isEqualToString:@"<null>"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(NSString *)SR_trimString
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+-(NSString *)SR_trimAllSpace
+{
+    NSString *trimed = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
+    trimed = [trimed stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    trimed = [trimed stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    trimed = [trimed stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    return trimed;
+}
+
 @end
